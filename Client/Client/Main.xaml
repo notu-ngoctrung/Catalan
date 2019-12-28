@@ -1,0 +1,178 @@
+﻿<Window x:Class="Client.Main"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Client"
+        xmlns:control = "clr-namespace:Client.Control" 
+        mc:Ignorable="d"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="#FF2D3040"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="18"
+        TextOptions.TextFormattingMode="Ideal"
+        RenderOptions.BitmapScalingMode="HighQuality"
+        FontFamily="/Font/#r0c0i Linotte"
+        Title="Main" Height="690" Width="989" WindowStyle="None" ResizeMode="NoResize">
+    <Window.Resources>
+        <Style x:Key="RoundButtonTemplate1" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border CornerRadius="6" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <ControlTemplate x:Key="TextBoxBaseControlTemplate" TargetType="{x:Type TextBoxBase}">
+            <Border Background="{TemplateBinding Background}" 
+                x:Name="Bd"
+                BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="6">
+                <ScrollViewer x:Name="PART_ContentHost"/>
+            </Border>
+        </ControlTemplate>
+    </Window.Resources>
+    <Grid>
+        <!--#region Dialog-->
+        <md:DialogHost Name="WPFEmojiBoard" IsOpen="False">
+            <md:DialogHost.DialogContent>
+                <ScrollViewer x:Name="sv" HorizontalContentAlignment="Center" CanContentScroll="True" PanningMode="Both" SnapsToDevicePixels="True" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled" DataContext="{Binding}" Background="#FF3F4258" Height="216" Width="361">
+                    <WrapPanel x:Name="wp1" HorizontalAlignment="Left"  VerticalAlignment="Top"  Width="363" >
+                    </WrapPanel>
+                </ScrollViewer>
+            </md:DialogHost.DialogContent>
+        </md:DialogHost>
+        <md:DialogHost x:Name="WPFNewConvDialog">
+            <md:DialogHost.DialogContent>
+                <StackPanel Margin="30" HorizontalAlignment="Center" Orientation="Vertical">
+                    <ComboBox x:Name="WPFNewConvDialog_DropList" FontSize="19" FontFamily="r0c0i Linotte Light"></ComboBox>
+                    <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                        <Button Name="WPFNewConvDialog_Accept" Content="Kết nối" Style="{DynamicResource MaterialDesignRaisedDarkButton}" HorizontalAlignment="Center" FontFamily="r0c0i Linotte Light" FontSize="20" Click="WPFNewConvDialog_Accept_Click"></Button>
+                        <Button Name="WPFNewConvDialog_Close" Content="Đóng" Style="{DynamicResource MaterialDesignRaisedDarkButton}" HorizontalAlignment="Center" FontFamily="r0c0i Linotte Light" FontSize="20" Margin="10,0,0,0" Click="WPFNewConvDialog_Close_Click"></Button>
+                    </StackPanel>
+                </StackPanel>
+            </md:DialogHost.DialogContent>
+        </md:DialogHost>
+
+        <md:DialogHost x:Name="WPFOtherFormSendDialog" IsOpen="False" Margin="-10,0,10,0">
+            <md:DialogHost.DialogContent>
+                <StackPanel Margin="30,15,30,30" HorizontalAlignment="Center" Orientation="Vertical">
+                    <StackPanel.Resources>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Margin" Value="0,15,0,0"/>
+                        </Style>
+                    </StackPanel.Resources>
+                    <Button x:Name="WPFImageSendButton" 
+                            Click="WPFImageSendButton_Click" Padding="0" Style="{DynamicResource MaterialDesignFlatButton}" Height="48" Width="48">
+                        <Viewbox Width="40" Height="40">
+                            <Canvas Width="24" Height="24">
+                                <Path Data="M8.5,13.5L11,16.5L14.5,12L19,18H5M21,19V5C21,3.89 20.1,3 19,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19Z" Fill="Black" />
+                            </Canvas>
+                        </Viewbox>
+                    </Button>
+                    <Button x:Name="WPFRecordSendButton"
+                            Style="{DynamicResource MaterialDesignFlatButton}" Height="48" Width="48"
+                            Padding="0" Click="WPFRecordSendButton_Click">
+                        <Viewbox Width="48" Height="48">
+                            <Canvas Width="24" Height="24">
+                                <Path Data="M12.5,5A7.5,7.5 0 0,0 5,12.5A7.5,7.5 0 0,0 12.5,20A7.5,7.5 0 0,0 20,12.5A7.5,7.5 0 0,0 12.5,5M7,10H9A1,1 0 0,1 10,11V12C10,12.5 9.62,12.9 9.14,12.97L10.31,15H9.15L8,13V15H7M12,10H14V11H12V12H14V13H12V14H14V15H12A1,1 0 0,1 11,14V11A1,1 0 0,1 12,10M16,10H18V11H16V14H18V15H16A1,1 0 0,1 15,14V11A1,1 0 0,1 16,10M8,11V12H9V11" Fill="Black" />
+                            </Canvas>
+                        </Viewbox>
+                    </Button>
+                    <Button x:Name="WPFDrawingSendButton"
+                            Style="{DynamicResource MaterialDesignFlatButton}"
+                            Padding="0" Height="48" Width="48"
+                            Click="WPFDrawingSendButton_Click">
+                        <Viewbox Width="40" Height="40">
+                            <Canvas Width="24" Height="24">
+                                <Path Data="M19,3H14.82C14.4,1.84 13.3,1 12,1C10.7,1 9.6,1.84 9.18,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M12,3A1,1 0 0,1 13,4A1,1 0 0,1 12,5A1,1 0 0,1 11,4A1,1 0 0,1 12,3M5,13.46H7.17L10.5,7.08L11.44,14.05L13.93,10.86L16.53,13.46H19V15H15.89L14.07,13.21L10.38,17.92L9.62,12.15L8.11,15H5V13.46Z" Fill="Black" />
+                            </Canvas>
+                        </Viewbox>
+                    </Button>
+                    <Button x:Name="WPFOtherFormSendDialog_Send"
+                            Style="{DynamicResource MaterialDesignFlatButton}"
+                            Content="Gửi" FontSize="18" Margin="0,10,0,0"
+                            Click="WPFOtherFormSendDialog_Send_Click">
+                    </Button>
+                    <Button x:Name="WPFOtherFormSendDialog_Close"
+                            Style="{DynamicResource MaterialDesignFlatButton}"
+                            Content="Đóng" FontSize="18" Margin="0,10,0,0"
+                            Click="WPFOtherFormSendDialog_Close_Click">
+                    </Button>
+                </StackPanel>
+            </md:DialogHost.DialogContent>
+        </md:DialogHost>
+        <!--#endregion-->
+        <Image HorizontalAlignment="Left" 
+               Height="43" Margin="21,10,0,0" 
+               VerticalAlignment="Top" Width="139" Source="/Image/Logo.png"/>
+        <Rectangle HorizontalAlignment="Left" Height="62" Margin="0,69,0,0" VerticalAlignment="Top" Width="989">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF2196F3" Offset="0"/>
+                    <GradientStop Color="#FF5CB3F7" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Label Margin="0,616,0,0" Background="#282a38" BorderThickness="0,4,0,0" HorizontalAlignment="Left" Width="281"/>
+        <Border Margin="0,0,731,14" HorizontalAlignment="Right" Width="237" Height="41" VerticalAlignment="Bottom" Background="#FF2196F3" CornerRadius="20">
+            <Button x:Name="WPFNewConv" Content="+ New conversation" Style="{DynamicResource MaterialDesignFlatButton}" Padding="0" HorizontalAlignment="Center" 
+                VerticalAlignment="Center" Width="220" Height="25" 
+                BorderBrush="{x:Null}" Foreground="#FFA3D2F8" Background="#FF2196F3" 
+                FontFamily="r0c0i Linotte" FontSize="16" Margin="8,10,9,10" Click="WPFNewConv_Click"/>
+        </Border>
+        <TextBox x:Name="WPFWriteBox" HorizontalAlignment="Left" 
+                 Style="{x:Null}"
+                 Template="{StaticResource TextBoxBaseControlTemplate}" 
+                 Padding="12,7,0,0"  Margin="350,638,0,0" TextWrapping="Wrap" 
+                 Text="Write a message..." 
+                 VerticalAlignment="Top" Width="570" Height="36" 
+                 FontFamily="r0c0i Linotte Light" FontSize="15.36" 
+                 Foreground="#FF878C9D" Background="#FF404359" 
+                 BorderBrush="#FF2041C5" BorderThickness="1,1,1,1"
+                 GotFocus="WPFWriteBox_GotFocus"
+                 PreviewKeyDown="WPFWriteBox_PreviewKeyDown"/>
+        <Button x:Name="WPFEmojiButton" Padding="0" HorizontalAlignment="Left" Margin="925,639,0,0" VerticalAlignment="Top" Width="32" Background="{x:Null}" Height="32" BorderBrush="{x:Null}" Click="WPFEmojiButton_Click">
+            <Image Height="28" Width="28" Source="/Image/Client_Smile_icon.png"/>
+        </Button>
+
+        <Button x:Name="WPFAdditionButton" Padding="0" HorizontalAlignment="Left" Margin="296,646,0,0" VerticalAlignment="Top" Width="48" Height="19" Background="{x:Null}" BorderBrush="{x:Null}" Click="WPFAdditionButton_Click">
+            <Image Height="11" Width="34" Source="/Image/Client_Dots_icon.png"/>
+        </Button>
+        <ScrollViewer x:Name="WPFConversation_Scroll"  VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled" Margin="281,131,0,74">
+            <StackPanel x:Name="WPFConversation" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="684">
+            </StackPanel>
+        </ScrollViewer>
+        <StackPanel x:Name="WPFPreview" HorizontalAlignment="Left" Height="485" 
+                    Margin="0,131,0,0" VerticalAlignment="Top" 
+                    Width="281"
+                    Background="#292b3a">
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="28,83,858,569">
+            <Image Source="/Image/Client_Inbox_Icon.png" HorizontalAlignment="Left" VerticalAlignment="Center" Width="32" Height="30" Margin="0,4"/>
+            <Label x:Name="WPFUnreadNumber" Content="Inbox" FontFamily="r0c0i Linotte" FontWeight="SemiBold" FontSize="13" Foreground="#FFFFFFFF" Margin="0,7,0,3" VerticalAlignment="Center" Width="68" Height="28"/>
+        </StackPanel>
+        <Button x:Name="WPFMarkAllRead" HorizontalAlignment="Left" Height="30" Margin="144,87,0,0" VerticalAlignment="Top" Width="138" Padding="0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="WPFMarkAllRead_Click">
+            <StackPanel Orientation="Horizontal" Height="26">
+                <Image Source="/Image/Client_MarkAllRead_Icon.png" HorizontalAlignment="Left" VerticalAlignment="Center" Width="Auto"/>
+                <Label Content="Mark all as Read" FontFamily="r0c0i Linotte" FontWeight="SemiBold" FontSize="13" Foreground="#FF464C62" Margin="0,0,0,0" VerticalAlignment="Center" Width="106"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="Close" HorizontalAlignment="Left" Height="41" Margin="931,10,0,0" VerticalAlignment="Top" Width="48" Style="{DynamicResource MaterialDesignFlatButton}" Click="Close_Click">
+            <Image Source="Image/close_icon.png"/>
+        </Button>
+        <Button x:Name="Minimize" HorizontalAlignment="Left" Height="41" Margin="883,10,0,0" VerticalAlignment="Top" Width="48" Style="{DynamicResource MaterialDesignFlatButton}" Click="Minimize_Click">
+            <Image Source="Image/minimize_icon.png"/>
+        </Button>
+        <Button x:Name="Drag" HorizontalAlignment="Left" Height="41" Margin="835,10,0,0" 
+            VerticalAlignment="Top" Width="48" Style="{DynamicResource MaterialDesignFlatButton}" 
+            Padding="9"
+            PreviewMouseLeftButtonDown="Drag_PreviewMouseLeftButtonDown"
+            PreviewMouseMove="Drag_PreviewMouseMove">
+            <Image Source="Image/DragMove.png"/>
+        </Button>
+    </Grid>
+</Window>

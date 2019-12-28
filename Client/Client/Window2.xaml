@@ -1,0 +1,128 @@
+﻿<Window x:Class="Client.Window2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Client"
+        mc:Ignorable="d"
+        Title="Window2" Height="242" Width="400" WindowStyle="None" ResizeMode="NoResize">
+    <Grid Margin="0,0,0,0" Background="#FF2F3242">
+
+        <Image HorizontalAlignment="Left" Height="52" Margin="20,58,0,0" VerticalAlignment="Top" Width="361" Source="/Image/Asset 2.png"/>
+
+        <Button x:Name="yellow" Content="" Margin="214,68,86,16"  Background="#ffeb3b" Click="yellow_Click" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Button.Template>
+                <ControlTemplate>
+                    <Grid Height="32" Width="32">
+                        <Ellipse Fill="#FFFFEB3B"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="white" Content="" Margin="272,68,0,0"  Background="#ebebeb" Click="white_Click" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Button.Template>
+                <ControlTemplate>
+                    <Grid Height="32" Width="32">
+                        <Ellipse Fill="#FFEBEBEB"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="black" Content="" Margin="330,68,10,16"  Background="#111111" Click="black_Click" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Button.Template>
+                <ControlTemplate>
+                    <Grid Height="32" Width="32">
+                        <Ellipse Fill="#111111"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="red" Content="" Margin="40,68,327,16" Background="#f44336" Click="red_Click" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Button.Template>
+                <ControlTemplate>
+                    <Grid Height="32" Width="32">
+                        <Ellipse Fill="#f44336"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="green" Content="" Margin="98,68,130,16"  HorizontalAlignment="Left" Background="#4caf50" Click="green_Click" VerticalAlignment="Top">
+            <Button.Template>
+                <ControlTemplate>
+                    <Grid Height="32" Width="32">
+                        <Ellipse Fill="#4caf50"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="blue" Content="" Margin="156,68,188,16"  Background="#2196f3" Click="blue_Click" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Button.Template>
+                <ControlTemplate>
+                    <Grid Height="32" Width="32">
+                        <Ellipse Fill="#2196f3"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Label Content="Brush/Text" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="17,24,0,0" FontFamily="r0c0i Linotte" Foreground="#bec0c2" Width="108" Height="34" FontSize="20"/>
+        <Button Padding="0" Style="{DynamicResource MaterialDesignFlatButton}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="18" Margin="368,20,0,0" Click="Button_Click" BorderThickness="0" Height="18" Background="#2f3242">
+            <Image Source="/image/Drawing_X.PNG" Stretch="Fill"  Height="16" Width="16" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        </Button>
+        <Image HorizontalAlignment="Left" Height="52" Margin="20,166,0,0" VerticalAlignment="Top" Width="361" Source="Image/Asset 2.png"/>
+        <Label Content="Background" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="17,132,0,0" FontFamily="r0c0i Linotte" Foreground="#bec0c2" Width="113" Height="34" FontSize="20"/>
+        <Button x:Name="yellow_Copy" Content="" Margin="214,176,0,0"  Background="#ffeb3b" HorizontalAlignment="Left" VerticalAlignment="Top" Click="yellow_Copy_Click">
+            <Button.Template>
+                <ControlTemplate>
+                    <Grid Height="32" Width="32">
+                        <Ellipse Fill="#FFFFEB3B"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="white_Copy" Content="" Margin="272,176,0,0"  Background="#ebebeb" HorizontalAlignment="Left" VerticalAlignment="Top" Click="white_Copy_Click">
+            <Button.Template>
+                <ControlTemplate>
+                    <Grid Height="32" Width="32">
+                        <Ellipse Fill="#FFEBEBEB"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="black_Copy" Content="" Margin="330,176,0,0"  Background="#111111" HorizontalAlignment="Left" VerticalAlignment="Top" Click="black_Copy_Click">
+            <Button.Template>
+                <ControlTemplate>
+                    <Grid Height="32" Width="32">
+                        <Ellipse Fill="#111111"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="red_Copy" Content="" Margin="40,176,0,0" Background="#f44336" HorizontalAlignment="Left" VerticalAlignment="Top" Click="red_Copy_Click">
+            <Button.Template>
+                <ControlTemplate>
+                    <Grid Height="32" Width="32">
+                        <Ellipse Fill="#f44336"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="green_Copy" Content="" Margin="98,176,0,0"  HorizontalAlignment="Left" Background="#4caf50" VerticalAlignment="Top" Click="green_Copy_Click">
+            <Button.Template>
+                <ControlTemplate>
+                    <Grid Height="32" Width="32">
+                        <Ellipse Fill="#4caf50"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="blue_Copy" Content="" Margin="156,176,0,0"  Background="#2196f3" VerticalAlignment="Top" HorizontalAlignment="Left" Click="blue_Copy_Click">
+            <Button.Template>
+                <ControlTemplate>
+                    <Grid Height="32" Width="32">
+                        <Ellipse Fill="#2196f3"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+    </Grid>
+</Window>

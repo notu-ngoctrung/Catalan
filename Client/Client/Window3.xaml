@@ -1,0 +1,23 @@
+﻿<Window x:Class="Client.Window3"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Client"
+        mc:Ignorable="d"
+        Title="Window3" Height="254" Width="571" WindowStyle="None" ResizeMode="NoResize">
+    <Grid Width="571" Height="254" Background="#2f3242">
+        <Slider x:Name="slValue" Foreground="#3f4258" Background="#3f4258" HorizontalAlignment="Left" VerticalAlignment="Top" Width="152 " Height="8" Style="{x:Null}" ValueChanged="slValue_ValueChanged" Margin="47,86,0,0"/>
+        <ComboBox x:Name="cb1" SelectionChanged="cb1_SelectionChanged" Margin="47,190,372,45" Width="152" Background="#3f4258"  />
+        <TextBox x:Name="tb1" Height="49.65" TextWrapping="Wrap" Style="{x:Null}" AcceptsReturn="True" Margin="260,56,10,148" Background="#3f4258" Foreground="#bec0c2" />
+        <Button Padding="0" Style="{DynamicResource MaterialDesignFlatButton}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="18" Margin="538,20,0,0" Click="Button_Click" BorderThickness="0" Height="18" RenderTransformOrigin="3.125,0.75" Background="#2f3242">
+            <Image Source="/image/Drawing_X.PNG" Stretch="Fill"  Height="16" Width="16"/>
+        </Button>
+        <Label Content="Size" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="17,17,0,0" FontFamily="r0c0i Linotte" Foreground="#bec0c2" Width="45" Height="34" FontSize="20"/>
+        <Label Content="Text" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="242
+               ,17,0,0" FontFamily="r0c0i Linotte" Foreground="#bec0c2" Width="50" Height="34" FontSize="20"/>
+        <Label Content="Size" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="17,137,0,0" FontFamily="r0c0i Linotte" Foreground="#bec0c2" Width="45" Height="34" FontSize="20"/>
+        <TextBlock x:Name="tblck" HorizontalAlignment="Left" Margin="260,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="133" Width="301" Background="#2b2d3c" Foreground="#bec0c2"/>
+
+    </Grid>
+</Window>
